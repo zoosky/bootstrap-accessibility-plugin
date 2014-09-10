@@ -1,6 +1,6 @@
   // DROPDOWN Extension
   // ===============================
-  
+
   var toggle   = '[data-toggle=dropdown]'
       , $par
       , firstItem
@@ -16,10 +16,10 @@
       var $toggle = $par.find(toggle)
       $toggle.attr('aria-expanded','true')
 
-      setTimeout(function(){
-            firstItem = $('.dropdown-menu [role=menuitem]:visible', $par)[0]
-            try{ firstItem.focus()} catch(ex) {}
-      }, focusDelay)
+      // setTimeout(function(){
+      //       firstItem = $('.dropdown-menu [role=menuitem]:visible', $par)[0]
+      //       try{ firstItem.focus()} catch(ex) {}
+      // }, focusDelay)
     })
 
     $(toggle).parent().on('hidden.bs.dropdown',function(e){
@@ -38,15 +38,15 @@
         e.preventDefault() && e.stopPropagation()
     }
 
-    $(document)
-      .on('focusout.dropdown.data-api', '.dropdown-menu', function(e){
-        var $this = $(this)
-                    , that = this
-        setTimeout(function() {
-         if(!$.contains(that, document.activeElement)){
-          $this.parent().removeClass('open')
-          $this.parent().find('[data-toggle=dropdown]').attr('aria-expanded','false')
-         }
-        }, 150)
-       })
-      .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu]' , $.fn.dropdown.Constructor.prototype.keydown)
+    // $(document)
+    //   .on('focusout.dropdown.data-api', '.dropdown-menu', function(e){
+    //     var $this = $(this)
+    //                 , that = this
+    //     setTimeout(function() {
+    //      if(!$.contains(that, document.activeElement)){
+    //       $this.parent().removeClass('open')
+    //       $this.parent().find('[data-toggle=dropdown]').attr('aria-expanded','false')
+    //      }
+    //     }, 150)
+    //    })
+    //   .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu]' , $.fn.dropdown.Constructor.prototype.keydown)

@@ -95,12 +95,11 @@ $('.close').removeAttr('aria-hidden').wrapInner('<span aria-hidden="true"></span
     $.fn.modal.Constructor.prototype.hide = function(){
        var modalOpener = this.$element.parent().find('[data-target="#' + this.$element.attr('id') + '"]')
        modalhide.apply(this, arguments)
-       console.log('modalOpener' , modalOpener)
        modalOpener.focus()
     }
   // DROPDOWN Extension
   // ===============================
-  
+
   var toggle   = '[data-toggle=dropdown]'
       , $par
       , firstItem
@@ -116,10 +115,10 @@ $('.close').removeAttr('aria-hidden').wrapInner('<span aria-hidden="true"></span
       var $toggle = $par.find(toggle)
       $toggle.attr('aria-expanded','true')
 
-      setTimeout(function(){
-            firstItem = $('.dropdown-menu [role=menuitem]:visible', $par)[0]
-            try{ firstItem.focus()} catch(ex) {}
-      }, focusDelay)
+      // setTimeout(function(){
+      //       firstItem = $('.dropdown-menu [role=menuitem]:visible', $par)[0]
+      //       try{ firstItem.focus()} catch(ex) {}
+      // }, focusDelay)
     })
 
     $(toggle).parent().on('hidden.bs.dropdown',function(e){
@@ -138,18 +137,18 @@ $('.close').removeAttr('aria-hidden').wrapInner('<span aria-hidden="true"></span
         e.preventDefault() && e.stopPropagation()
     }
 
-    $(document)
-      .on('focusout.dropdown.data-api', '.dropdown-menu', function(e){
-        var $this = $(this)
-                    , that = this
-        setTimeout(function() {
-         if(!$.contains(that, document.activeElement)){
-          $this.parent().removeClass('open')
-          $this.parent().find('[data-toggle=dropdown]').attr('aria-expanded','false')
-         }
-        }, 150)
-       })
-      .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu]' , $.fn.dropdown.Constructor.prototype.keydown)
+    // $(document)
+    //   .on('focusout.dropdown.data-api', '.dropdown-menu', function(e){
+    //     var $this = $(this)
+    //                 , that = this
+    //     setTimeout(function() {
+    //      if(!$.contains(that, document.activeElement)){
+    //       $this.parent().removeClass('open')
+    //       $this.parent().find('[data-toggle=dropdown]').attr('aria-expanded','false')
+    //      }
+    //     }, 150)
+    //    })
+    //   .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu]' , $.fn.dropdown.Constructor.prototype.keydown)
   // Tab Extension
   // ===============================
   

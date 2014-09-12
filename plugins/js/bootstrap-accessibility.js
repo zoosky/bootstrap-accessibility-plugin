@@ -199,7 +199,7 @@ $('.close').removeAttr('aria-hidden').wrapInner('<span aria-hidden="true"></span
       var nextTab = $items.eq(index)
       if(nextTab.attr('role') ==='tab'){
 
-        nextTab.tab('show')      //Comment this line for dynamically loaded tabPabels, to save Ajax requests on arrow key navigation
+        nextTab//.tab('show')      //Comment this line for dynamically loaded tabPabels, to save Ajax requests on arrow key navigation
         .focus()
       }
       // nextTab.focus()

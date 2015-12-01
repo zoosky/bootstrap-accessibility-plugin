@@ -17,10 +17,10 @@
         tab.attr('id', tabid)
 
       if(tab.parent().hasClass('active')){
-        tab.attr( { 'aria-selected' : 'true', 'aria-controls': tab.attr('href').substr(1) } )
+        tab.attr( { 'tabIndex' : '0', 'aria-selected' : 'true', 'aria-controls': tab.attr('href').substr(1) } )
         tabpanel.attr({ 'role' : 'tabpanel', 'tabIndex' : '0', 'aria-hidden' : 'false', 'aria-labelledby':tabid })
       }else{
-        tab.attr( { 'aria-selected' : 'false', 'aria-controls': tab.attr('href').substr(1) } )
+        tab.attr( { 'tabIndex' : '-1', 'aria-selected' : 'false', 'aria-controls': tab.attr('href').substr(1) } )
         tabpanel.attr( { 'role' : 'tabpanel', 'tabIndex' : '-1', 'aria-hidden' : 'true', 'aria-labelledby':tabid } )
       }
     })

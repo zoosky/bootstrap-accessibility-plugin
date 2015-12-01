@@ -168,10 +168,10 @@ $('.close').removeAttr('aria-hidden').wrapInner('<span aria-hidden="true"></span
         tab.attr('id', tabid)
 
       if(tab.parent().hasClass('active')){
-        tab.attr( { 'aria-selected' : 'true', 'aria-controls': tab.attr('href').substr(1) } )
+        tab.attr( { 'tabIndex' : '0', 'aria-selected' : 'true', 'aria-controls': tab.attr('href').substr(1) } )
         tabpanel.attr({ 'role' : 'tabpanel', 'tabIndex' : '0', 'aria-hidden' : 'false', 'aria-labelledby':tabid })
       }else{
-        tab.attr( { 'aria-selected' : 'false', 'aria-controls': tab.attr('href').substr(1) } )
+        tab.attr( { 'tabIndex' : '-1', 'aria-selected' : 'false', 'aria-controls': tab.attr('href').substr(1) } )
         tabpanel.attr( { 'role' : 'tabpanel', 'tabIndex' : '-1', 'aria-hidden' : 'true', 'aria-labelledby':tabid } )
       }
     })
@@ -222,6 +222,7 @@ $('.close').removeAttr('aria-hidden').wrapInner('<span aria-hidden="true"></span
       element.find('[data-toggle=tab], [data-toggle=pill]').attr({ 'tabIndex' : '0','aria-selected' : true })
       element.filter('.tab-pane').attr({ 'aria-hidden' : false,'tabIndex' : '0' })
    }
+
 
   // Collapse Extension
   // ===============================

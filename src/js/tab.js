@@ -18,10 +18,10 @@
 
       if(tab.parent().hasClass('active')){
         tab.attr( { 'tabIndex' : '0', 'aria-selected' : 'true', 'aria-controls': tab.attr('href').substr(1) } )
-        tabpanel.attr({ 'role' : 'tabpanel', 'tabIndex' : '0', 'aria-hidden' : 'false', 'aria-labelledby':tabid })
+        tabpanel.attr({ 'role' : 'tabpanel', 'aria-hidden' : 'false', 'aria-labelledby': tabid })
       }else{
         tab.attr( { 'tabIndex' : '-1', 'aria-selected' : 'false', 'aria-controls': tab.attr('href').substr(1) } )
-        tabpanel.attr( { 'role' : 'tabpanel', 'tabIndex' : '-1', 'aria-hidden' : 'true', 'aria-labelledby':tabid } )
+        tabpanel.attr( { 'role' : 'tabpanel', 'aria-hidden' : 'true', 'aria-labelledby': tabid } )
       }
     })
 
@@ -63,11 +63,11 @@
    $.fn.tab.Constructor.prototype.activate = function (element, container, callback) {
       var $active = container.find('> .active')
       $active.find('[data-toggle=tab], [data-toggle=pill]').attr({ 'tabIndex' : '-1','aria-selected' : false })
-      $active.filter('.tab-pane').attr({ 'aria-hidden' : true,'tabIndex' : '-1' })
+      $active.filter('.tab-pane').attr({ 'aria-hidden': true })
 
       tabactivate.apply(this, arguments)
 
       element.addClass('active')
       element.find('[data-toggle=tab], [data-toggle=pill]').attr({ 'tabIndex' : '0','aria-selected' : true })
-      element.filter('.tab-pane').attr({ 'aria-hidden' : false,'tabIndex' : '0' })
+      element.filter('.tab-pane').attr({ 'aria-hidden': false })
    }
